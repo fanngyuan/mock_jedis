@@ -846,5 +846,14 @@ public class MockStorage {
 		dst.addAll(inter);
 		return inter.size();
 	}
+
+	public synchronized byte[] lindex(final DataContainer key, long index) {
+		final List<DataContainer> list = getListFromStorage(key, true);
+		if (list == null || list.isEmpty()) {
+			return null;
+		} else {
+			return list.get((int)index).getBytes();
+		}
+	}
 }
 

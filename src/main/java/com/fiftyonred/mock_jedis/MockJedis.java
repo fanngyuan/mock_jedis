@@ -820,7 +820,7 @@ public class MockJedis extends Jedis {
 
 	@Override
 	public String lindex(String key, long index) {
-		throw new UnsupportedOperationException(NOT_IMPLEMENTED);
+        return pipeline.lindex(key, index).get();
 	}
 
 	@Override
