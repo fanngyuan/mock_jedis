@@ -1201,5 +1201,12 @@ public class MockPipeline extends Pipeline {
 		response.set((long) mockStorage.sunionstore(DataContainer.from(dstkey), DataContainer.from(keys)));
 		return response;
 	}
+
+	@Override
+	public Response<String> lindex(String key, long index) {
+		final Response<String> response = new Response<String>(BuilderFactory.STRING);
+		response.set(mockStorage.lindex(DataContainer.from(key), index));
+		return response;
+	}
 }
 
